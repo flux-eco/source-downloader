@@ -1,0 +1,21 @@
+type: array
+items:
+  oneOf:
+    - type: object
+      properties:
+        sourceType:
+          const: git
+        url:
+          type: string
+        localPath:
+          type: string
+      required: [sourceType, url, localPath]
+  - type: object
+    properties:
+      sourceType:
+        const: tar-gz
+      url:
+        type: string
+      localPath:
+        type: string
+    required: [sourceType, url, localPath]

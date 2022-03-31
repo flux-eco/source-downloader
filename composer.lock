@@ -1,0 +1,83 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "67bce431eb374c10b233d322b9e15890",
+    "packages": [
+        {
+            "name": "flux-eco/shell-executor",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flux-eco/shell-executor.git",
+                "reference": "bf1dd67ecd242864449d42cb92a55a5c20357a98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flux-eco/shell-executor/zipball/bf1dd67ecd242864449d42cb92a55a5c20357a98",
+                "reference": "bf1dd67ecd242864449d42cb92a55a5c20357a98",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": ">=2.1",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-yaml": "*",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "composer/composer": ">=2.0",
+                "swoole/ide-helper": ">=4.6"
+            },
+            "type": "flux-app",
+            "autoload": {
+                "psr-4": {
+                    "FluxEco\\ShellExecutor\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "fluxlabs ag",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Component for flux-capacitor apps developed by fluxlabs",
+            "homepage": "https://fluxlabs.ch",
+            "keywords": [
+                "flux-capacitor",
+                "flux-ecosystem",
+                "fluxlabs ag"
+            ],
+            "support": {
+                "email": "support@fluxlabs.ch",
+                "issues": "https://github.com/flux-eco/shell-executor/issues",
+                "source": "https://github.com/flux-eco/shell-executor/tree/v0.0.1"
+            },
+            "time": "2022-03-28T03:02:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-yaml": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

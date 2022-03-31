@@ -1,6 +1,7 @@
-# flux-eco/source-downloader
+# flux-eco/shell-executor
 
-This component supports the downloading of software sources. e.g. for building docker containers
+This component support executing shell commands. 
+In the future, thanks to swoole, co/routine it will also support parallelisation.
 
 ## Contributing :purple_heart:
 
