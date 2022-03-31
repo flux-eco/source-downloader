@@ -34,6 +34,6 @@ class Outbounds implements Ports\Configs\Outbounds
             return $transformedSources;
         }
 
-        return yaml_parse(file_get_contents(getenv(ENV::SOURCE_DOWNLOADER_SOURCE_LIST_FILE)));
+        return yaml_parse(file_get_contents(getenv(Env::SOURCE_DOWNLOADER_SOURCE_LIST_FILE)));
     }
 }
