@@ -13,13 +13,13 @@ class SourceDownloaderApi
         $this->service = $service;
     }
 
-    public static function new() : self
+    public static function new(?string $sourceListFile = null, ?string $volumePath = null, ?bool $gitGetFullClone = null) : self
     {
-        $apiGatewayService = Ports\Service::new(Adapters\Configs\Outbounds::new());
+        $apiGatewayService = Ports\Service::new(Adapters\Configs\Outbounds::new($sourceListFile, $volumePath, $gitGetFullClone));
         return new self($apiGatewayService);
     }
 
-    public function downloadSources(?string $sourceListFile = null, ?string $volumePath = null) {
-        $this->service->downloadSources($sourceListFile, $volumePath);
+    public function downloadSources() {
+        $this->service->downloadSources();
     }
 }

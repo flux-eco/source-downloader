@@ -6,7 +6,11 @@ interface Command
 {
     public function getSourceType() : string;
 
-    public function getPath() : string;
-
     public function getUrl() : string;
+
+    public function getDirectoryPath() : string;
+
+    public function getDirectoryName() : string;
+
+    public function getTag() : string;
 }

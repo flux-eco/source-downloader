@@ -17,7 +17,8 @@ class DownloadProcess implements DownloadHandlers\Process
         $this->outbounds = $outbounds;
         $this->handlerQueue = [
             DownloadHandlers\DownloadTarGzHandler::new($outbounds, $this),
-            DownloadHandlers\GitCommandHandler::new($outbounds, $this),
+            DownloadHandlers\GitCloneCommandHandler::new($outbounds, $this),
+            DownloadHandlers\GitCloneStateCommandHandler::new($outbounds, $this),
             $this
         ];
     }
@@ -34,10 +35,7 @@ class DownloadProcess implements DownloadHandlers\Process
 
     public function process(DownloadHandlers\Command $command) : void
     {
-        $nextHandler = $this->handlerQueue[0];
-        unset($this->handlerQueue[0]); // remove item at index 0
-        $this->handlerQueue = array_values($this->handlerQueue); // 'reindex' array
-
+        $nextHandler = array_shift($this->handlerQueue);
         $nextHandler->handle($command);
     }
 }

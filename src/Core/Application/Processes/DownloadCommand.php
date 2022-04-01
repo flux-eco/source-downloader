@@ -7,25 +7,38 @@ use FluxEco\SourceDownloader\Core\Application\DownloadHandlers;
 class DownloadCommand implements DownloadHandlers\Command
 {
     private string $sourceType;
-    private string $path;
     private string $url;
+    private string $directoryPath;
+    private string $directoryName;
+    private string $tag;
 
     private function __construct(
         string $sourceType,
-        string $path,
-        string $url
+        string $url,
+        string $directoryPath,
+        string $directoryName,
+        string $tag
     ) {
         $this->sourceType = $sourceType;
-        $this->path = $path;
         $this->url = $url;
+        $this->directoryPath = $directoryPath;
+        $this->directoryName = $directoryName;
+        $this->tag = $tag;
     }
 
     public static function fromArray(array $source) : self
     {
+        $tag = '';
+        if(key_exists('tag', $source)) {
+            $tag = $source['tag'];
+        }
+
         return new self(
             $source['sourceType'],
-            $source['localPath'],
-            $source['url']
+            $source['url'],
+            $source['directoryPath'],
+            $source['directoryName'],
+            $tag
         );
     }
 
@@ -34,13 +47,23 @@ class DownloadCommand implements DownloadHandlers\Command
         return $this->sourceType;
     }
 
-    public function getPath() : string
-    {
-        return $this->path;
-    }
-
     public function getUrl() : string
     {
         return $this->url;
+    }
+
+    public function getdirectoryPath() : string
+    {
+        return $this->directoryPath;
+    }
+
+    public function getDirectoryName() : string
+    {
+        return $this->directoryName;
+    }
+
+    public function getTag() : string
+    {
+        return $this->tag;
     }
 }

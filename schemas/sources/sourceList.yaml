@@ -1,3 +1,4 @@
+$schema: "https://raw.githubusercontent.com/flux-eco/source-downloader/main/schemas/sources/sourceList.yaml"
 type: array
 items:
   oneOf:
@@ -7,15 +8,21 @@ items:
           const: git
         url:
           type: string
-        localPath:
+        directoryPath:
           type: string
-      required: [sourceType, url, localPath]
+        directoryName:
+          type: string
+        tag:
+          type: string
+      required: [sourceType, url, directoryPath, directoryName, tag]
   - type: object
     properties:
       sourceType:
         const: tar-gz
       url:
         type: string
-      localPath:
+      directoryPath:
         type: string
-    required: [sourceType, url, localPath]
+      directoryName:
+        type: string
+    required: [sourceType, url, directoryPath, directoryName]
