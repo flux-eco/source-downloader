@@ -32,11 +32,14 @@ class GitCloneCommandHandler implements CommandHandler
             return;
         }
 
-        $deleteDirectory = 'rm -r ' . $command->getDirectoryPath();
-        $createDirectory = 'mkdir -p ' . $command->getDirectoryPath();
+        $deleteDirectory = '';
+        if(is_dir($command->getDirectoryPath())) {
+            $deleteDirectory = 'rm -r ' . $command->getDirectoryPath();
+        }
+        $createDirectory = $deleteDirectory .' && mkdir -p ' . $command->getDirectoryPath();
         $cdDirectory = 'cd ' . $command->getDirectoryPath();
         $cloneRepository = 'git clone --branch ' . $command->getTag() . ' ' . $command->getUrl() . ' ' . $command->getDirectoryName();
 
-        $this->shellExecutorClient->execute([$deleteDirectory, $createDirectory, $cdDirectory, $cloneRepository]);
+        $this->shellExecutorClient->execute([$createDirectory, $cdDirectory, $cloneRepository]);
     }
 }
