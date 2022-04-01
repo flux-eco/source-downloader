@@ -1,7 +1,7 @@
 {
   "name": "flux-eco/source-downloader",
   "description": "Component for flux-capacitor apps developed by fluxlabs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "flux-eco",
   "keywords": [
     "flux-eco",

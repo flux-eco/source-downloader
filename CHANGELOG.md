@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.0.5]
+- fix: git - delete directory if exists
+
 ## [1.0.4]
 - updated dependencies
 
