@@ -1,7 +1,10 @@
 # CHANGELOG
 
+## [1.0.7]
+- fix: git - only delete concrete directory 
+
 ## [1.0.6]
-- fix: git - commands
+- fix: git - commands`
 
 ## [1.0.5]
 - fix: git - delete directory if exists

@@ -33,8 +33,8 @@ class GitCloneStateCommandHandler implements CommandHandler
         }
 
         $createDirectory = 'mkdir -p ' . $command->getDirectoryPath();
-        if(is_dir($command->getDirectoryPath())) {
-            $createDirectory = 'rm -r ' . $command->getDirectoryPath().' && '.$createDirectory;
+        if(is_dir($command->getDirectoryPath()).'/'.$command->getDirectoryName()) {
+            $createDirectory = 'rm -r ' . $command->getDirectoryPath().'/'.$command->getDirectoryName().' && '.$createDirectory;
         }
         $cdDirectory = 'cd ' . $command->getDirectoryPath();
         $cloneRepository = 'git clone --depth 1 --branch '.$command->getTag() .' '. $command->getUrl().' '.$command->getDirectoryName();
