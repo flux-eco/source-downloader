@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.0.6]
+- fix: git - commands
+
 ## [1.0.5]
 - fix: git - delete directory if exists
 
