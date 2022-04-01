@@ -6,15 +6,33 @@ use FluxEco\SourceDownloader\{Adapters, Core\Ports};
 
 class Outbounds implements Ports\Configs\Outbounds
 {
+    private string $sourceListFile;
+    private string $volumePath;
+    private bool $gitGetFullClone;
 
-    private function __construct()
+    private function __construct(string $sourceListFile, string $volumePath, bool $gitGetFullClone)
     {
-
+        $this->sourceListFile = $sourceListFile;
+        $this->volumePath = $volumePath;
+        $this->gitGetFullClone = $gitGetFullClone;
     }
 
-    public static function new() : self
-    {
-        return new self();
+    public static function new(
+        ?string $sourceListFile = null,
+        ?string $volumePath = null,
+        ?bool $gitGetFullClone = null
+    ) : self {
+        if (is_null($sourceListFile) === true) {
+            $sourceListFile = getenv(Env::SOURCE_LIST_FILE);
+        }
+        if (is_null($volumePath) === true) {
+            $volumePath = getenv(Env::VOLUME_PATH);
+        }
+        if (is_null($gitGetFullClone) === true) {
+            $gitGetFullClone = getenv(Env::GIT_FULL_CLONE);
+        }
+
+        return new self($sourceListFile, $volumePath, $gitGetFullClone);
     }
 
     public function getShellExecutorClient() : Ports\ShellExecutor\ShellExecutorClient
@@ -22,18 +40,19 @@ class Outbounds implements Ports\Configs\Outbounds
         return Adapters\ShellExecutor\ShellExecutorClient::new();
     }
 
-    public function getSourceList(?string $sourceListFile, ?string $volumePath) : array
+    public function getGitFullClone() : bool
     {
-        if ($sourceListFile !== null) {
-            $sources = yaml_parse(file_get_contents($sourceListFile));
-            $transformedSources = [];
-            foreach ($sources as $source) {
-                $source['localPath'] = $volumePath . $source['localPath'];
-                $transformedSources[] = $source;
-            }
-            return $transformedSources;
-        }
+        return $this->gitGetFullClone;
+    }
 
-        return yaml_parse(file_get_contents(getenv(Env::SOURCE_DOWNLOADER_SOURCE_LIST_FILE)));
+    public function getSourceList() : array
+    {
+        $sources = yaml_parse(file_get_contents($this->sourceListFile));
+        $transformedSources = [];
+        foreach ($sources as $source) {
+            $source['directoryPath'] = $this->volumePath . $source['directoryPath'];
+            $transformedSources[] = $source;
+        }
+        return $transformedSources;
     }
 }

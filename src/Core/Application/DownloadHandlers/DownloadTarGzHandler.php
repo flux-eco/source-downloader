@@ -27,8 +27,8 @@ class DownloadTarGzHandler
             return;
         }
 
-        $createDirectory = 'mkdir -p ' . $command->getPath();
-        $cdDirectory = 'cd ' . $command->getPath();
+        $createDirectory = 'mkdir -p ' . $command->getDirectoryPath() . '/' . $command->getDirectoryName();
+        $cdDirectory = 'cd ' . $command->getDirectoryPath() . '/' . $command->getDirectoryName();
         $curlUrl = 'curl -SL ' . $command->getUrl() . ' | tar -xz --strip-components=1';
 
         $this->shellExecutorClient->execute([$createDirectory, $cdDirectory, $curlUrl]);

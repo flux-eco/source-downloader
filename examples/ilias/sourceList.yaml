@@ -1,0 +1,5 @@
+- sourceType: git
+  url: https://github.com/fluxapps/SrContainerObjectMenu.git
+  directoryPath: /var/www/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
+  directoryName: SrContainerObjectMenu
+  tag: v2.5.7
