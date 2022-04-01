@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75ebb59895d6a67e0c6f5db4c4e0950f",
+    "content-hash": "544ed68328e2b30f1aa7914d4890be6b",
     "packages": [
         {
             "name": "flux-eco/shell-executor",
