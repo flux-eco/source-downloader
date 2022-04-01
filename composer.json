@@ -4,9 +4,9 @@
   "version": "1.0.3",
   "type": "flux-eco",
   "keywords": [
-    "FluxCapacitor",
-    "FluxEco",
-    "fluxlabs ag"
+    "flux-eco",
+    "source-downloader",
+    "fluxlabs"
   ],
   "homepage": "https://fluxlabs.ch",
   "license": "GPL-3.0-only",
