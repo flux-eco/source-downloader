@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.0.8]
+- fix: git - directory check for deletion
+
 ## [1.0.7]
 - fix: git - only delete concrete directory 
 

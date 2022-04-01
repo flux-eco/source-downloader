@@ -33,7 +33,7 @@ class GitCloneStateCommandHandler implements CommandHandler
         }
 
         $createDirectory = 'mkdir -p ' . $command->getDirectoryPath();
-        if(is_dir($command->getDirectoryPath()).'/'.$command->getDirectoryName()) {
+        if(is_dir($command->getDirectoryPath().'/'.$command->getDirectoryName())) {
             $createDirectory = 'rm -r ' . $command->getDirectoryPath().'/'.$command->getDirectoryName().' && '.$createDirectory;
         }
         $cdDirectory = 'cd ' . $command->getDirectoryPath();
