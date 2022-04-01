@@ -1,3 +1,7 @@
+- sourceType: tar-gz
+  directoryPath: /var/www
+  directoryName: ilias
+  url: https://github.com/ILIAS-eLearning/ILIAS/releases/download/v7.7/ILIAS-7.7.tar.gz
 - sourceType: git
   url: https://github.com/fluxapps/SrContainerObjectMenu.git
   directoryPath: /var/www/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
