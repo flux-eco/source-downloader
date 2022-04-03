@@ -4,31 +4,85 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "544ed68328e2b30f1aa7914d4890be6b",
+    "content-hash": "89f03f561e1279b608ed79a2820af7b1",
     "packages": [
         {
-            "name": "flux-eco/shell-executor",
-            "version": "0.0.1",
+            "name": "flux-eco/dot-env",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/flux-eco/shell-executor.git",
-                "reference": "bf1dd67ecd242864449d42cb92a55a5c20357a98"
+                "url": "https://github.com/flux-eco/dot-env.git",
+                "reference": "018e9cc0f6ccadbbe764abc987d86e22d1058f6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flux-eco/shell-executor/zipball/bf1dd67ecd242864449d42cb92a55a5c20357a98",
-                "reference": "bf1dd67ecd242864449d42cb92a55a5c20357a98",
+                "url": "https://api.github.com/repos/flux-eco/dot-env/zipball/018e9cc0f6ccadbbe764abc987d86e22d1058f6f",
+                "reference": "018e9cc0f6ccadbbe764abc987d86e22d1058f6f",
                 "shasum": ""
             },
             "require": {
-                "composer-runtime-api": ">=2.1",
+                "php": ">=7.4"
+            },
+            "type": "flux-app",
+            "autoload": {
+                "files": [
+                    "fn/loadDotEnv.php"
+                ],
+                "psr-4": {
+                    "fluxy\\": [
+                        "fn/"
+                    ],
+                    "FluxEco\\DotEnv\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "fluxlabs ag",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Loads .env-Files",
+            "homepage": "https://fluxlabs.ch",
+            "keywords": [
+                "dot-env",
+                "flux-eco",
+                "fluxlabs"
+            ],
+            "support": {
+                "email": "support@fluxlabs.ch",
+                "source": "https://github.com/flux-eco/dot-env/tree/v1.1.0"
+            },
+            "time": "2022-04-03T03:56:56+00:00"
+        },
+        {
+            "name": "flux-eco/shell-executor",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flux-eco/shell-executor.git",
+                "reference": "bb67de623f80e14cee0cca902eca57eeaf9c9539"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flux-eco/shell-executor/zipball/bb67de623f80e14cee0cca902eca57eeaf9c9539",
+                "reference": "bb67de623f80e14cee0cca902eca57eeaf9c9539",
+                "shasum": ""
+            },
+            "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-yaml": "*",
-                "php": ">=8.0"
+                "php": ">=7.4"
             },
             "require-dev": {
-                "composer/composer": ">=2.0",
                 "swoole/ide-helper": ">=4.6"
             },
             "type": "flux-app",
@@ -51,19 +105,19 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Component for flux-capacitor apps developed by fluxlabs",
+            "description": "Component for executing shell commands",
             "homepage": "https://fluxlabs.ch",
             "keywords": [
-                "flux-capacitor",
-                "flux-ecosystem",
-                "fluxlabs ag"
+                "flux-eco",
+                "fluxlabs",
+                "shell-executor"
             ],
             "support": {
                 "email": "support@fluxlabs.ch",
                 "issues": "https://github.com/flux-eco/shell-executor/issues",
-                "source": "https://github.com/flux-eco/shell-executor/tree/v0.0.1"
+                "source": "https://github.com/flux-eco/shell-executor/tree/v0.0.2"
             },
-            "time": "2022-03-28T03:02:50+00:00"
+            "time": "2022-04-01T02:41:15+00:00"
         }
     ],
     "packages-dev": [],

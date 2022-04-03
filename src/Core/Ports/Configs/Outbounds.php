@@ -8,5 +8,5 @@ interface Outbounds
 {
     public function getShellExecutorClient() : Ports\ShellExecutor\ShellExecutorClient;
     public function getGitFullClone() : bool;
-    public function getSourceList() : array;
+    public function getSourceList(string $sourceListFile, ?string $volumePath = null) : array;
 }

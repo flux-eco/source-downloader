@@ -18,9 +18,9 @@ class Service
         return new self($outbounds);
     }
 
-    public function downloadSources()
+    public function downloadSources(string $sourceListFile = null, ?string $volumePath = null)
     {
-        $sourceList = $this->outbounds->getSourceList();
+        $sourceList = $this->outbounds->getSourceList($sourceListFile, $volumePath);
 
         foreach ($sourceList as $source) {
             $process = Processes\DownloadProcess::new($this->outbounds);
