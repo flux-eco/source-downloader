@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.1.1]
+- change: added usage chapter to readme
+
 ## [1.1.0]
 - change: added additional functional usage
 
