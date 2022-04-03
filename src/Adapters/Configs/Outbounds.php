@@ -6,33 +6,15 @@ use FluxEco\SourceDownloader\{Adapters, Core\Ports};
 
 class Outbounds implements Ports\Configs\Outbounds
 {
-    private string $sourceListFile;
-    private string $volumePath;
     private bool $gitGetFullClone;
 
-    private function __construct(string $sourceListFile, string $volumePath, bool $gitGetFullClone)
+    private function __construct(bool $gitGetFullClone)
     {
-        $this->sourceListFile = $sourceListFile;
-        $this->volumePath = $volumePath;
         $this->gitGetFullClone = $gitGetFullClone;
     }
 
-    public static function new(
-        ?string $sourceListFile = null,
-        ?string $volumePath = null,
-        ?bool $gitGetFullClone = null
-    ) : self {
-        if (is_null($sourceListFile) === true) {
-            $sourceListFile = getenv(Env::SOURCE_LIST_FILE);
-        }
-        if (is_null($volumePath) === true) {
-            $volumePath = getenv(Env::VOLUME_PATH);
-        }
-        if (is_null($gitGetFullClone) === true) {
-            $gitGetFullClone = getenv(Env::GIT_FULL_CLONE);
-        }
-
-        return new self($sourceListFile, $volumePath, $gitGetFullClone);
+    public static function new(bool $gitGetFullClone) : self {
+        return new self($gitGetFullClone);
     }
 
     public function getShellExecutorClient() : Ports\ShellExecutor\ShellExecutorClient
@@ -45,12 +27,12 @@ class Outbounds implements Ports\Configs\Outbounds
         return $this->gitGetFullClone;
     }
 
-    public function getSourceList() : array
+    public function getSourceList(string $sourceListFile, ?string $volumePath = null) : array
     {
-        $sources = yaml_parse(file_get_contents($this->sourceListFile));
+        $sources = yaml_parse(file_get_contents($sourceListFile));
         $transformedSources = [];
         foreach ($sources as $source) {
-            $source['directoryPath'] = $this->volumePath . $source['directoryPath'];
+            $source['directoryPath'] = $volumePath . $source['directoryPath'];
             $transformedSources[] = $source;
         }
         return $transformedSources;

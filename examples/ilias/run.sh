@@ -1,1 +1,0 @@
-php ../../bin/downloadSources.php '../examples/ilias/sourceList.yaml' '/tmp' 0

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.1.0]
+- change: added additional functional usage
+
 ## [1.0.8]
 - fix: git - directory check for deletion
 
